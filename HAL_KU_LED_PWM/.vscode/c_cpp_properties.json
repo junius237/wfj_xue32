@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c99",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "${default}",
+            "compilerPath": "D:/MinGW64/bin/gcc.exe"
+        },
+        {
+            "name": "Windows64",
+            "includePath": [
+                "e:/Desktop/f32xuexi/HAL_KU_LED_PWM/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c99",
+            "cppStandard": "gnu++14",
+            "mergeConfigurations": false,
+            "compilerPath": "D:/MinGW64/bin/gcc.exe",
+            "browse": {
+                "path": [
+                    "e:/Desktop/f32xuexi/HAL_KU_LED_PWM/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,158 @@
+project:
+  packs:
+    - pack: Keil::STM32F1xx_DFP@2.4.1
+    - pack: ARM::CMSIS@5.9.0
+    - pack: Tencent::TencentOS-tiny@1.0.0
+  setups:
+    - setup: Options for car
+      add-path:
+        - ../Core/Inc
+        - ../Drivers/STM32F1xx_HAL_Driver/Inc
+        - ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
+        - ../Drivers/CMSIS/Device/ST/STM32F1xx/Include
+        - ../Drivers/CMSIS/Include
+      debug: "on"
+      define:
+        - USE_HAL_DRIVER
+        - STM32F103xE
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Wno-packed
+            - -Wno-missing-variable-declarations
+            - -Wno-missing-prototypes
+            - -Wno-missing-noreturn
+            - -Wno-sign-conversion
+            - -Wno-nonportable-include-path
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+          CPP:
+            - -xc++
+            - -std=c++03
+          ASM:
+            - -masm=auto
+          Link:
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+  linker:
+    - script: car_car.sct
+  groups:
+    - group: Application/MDK-ARM
+      files:
+        - file: startup_stm32f103xe.s
+    - group: Application/User/Core
+      files:
+        - file: ../Core/Src/main.c
+        - file: ../Core/Src/stm32f1xx_it.c
+        - file: ../Core/Src/stm32f1xx_hal_msp.c
+    - group: Drivers/STM32F1xx_HAL_Driver
+      files:
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c
+        - file: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
+    - group: Drivers/CMSIS
+      files:
+        - file: ../Core/Src/system_stm32f1xx.c
+  components:
+    - component: Keil::Board Support&MCBSTM32E:A/D Converter
+    - component: Keil::Board Support&MCBSTM32E:Graphic LCD
+    - component: Keil::Board Support&MCBSTM32E:emWin LCD&16-bit IF
+    - component: Keil::Board Support&MCBSTM32E:Joystick
+    - component: Keil::Board Support&MCBSTM32E:Buttons
+    - component: Keil::Board Support&MCBSTM32E:LED
+    - component: ARM::CMSIS:CORE
+    - component: ARM::CMSIS:DSP&Source
+    - component: ARM::CMSIS:NN Lib
+    - component: ARM::CMSIS:RTOS:Keil RTX5
+    - component: Keil::CMSIS Driver:CAN
+    - component: Keil::CMSIS Driver:SPI
+    - component: Keil::CMSIS Driver:USART
+    - component: Keil::CMSIS Driver:I2C
+    - component: Keil::CMSIS Driver:MCI
+    - component: Keil::CMSIS Driver:USB Device
+    - component: ARM::CMSIS Driver:USART:Custom
+    - component: ARM::CMSIS Driver:SPI:Custom
+    - component: ARM::CMSIS Driver:SAI:Custom
+    - component: ARM::CMSIS Driver:I2C:Custom
+    - component: ARM::CMSIS Driver:CAN:Custom
+    - component: ARM::CMSIS Driver:Flash:Custom
+    - component: ARM::CMSIS Driver:MCI:Custom
+    - component: ARM::CMSIS Driver:NAND:Custom
+    - component: ARM::CMSIS Driver:Ethernet:Custom
+    - component: ARM::CMSIS Driver:Ethernet MAC:Custom
+    - component: ARM::CMSIS Driver:Ethernet PHY:Custom
+    - component: ARM::CMSIS Driver:USB Device:Custom
+    - component: ARM::CMSIS Driver:USB Host:Custom
+    - component: ARM::CMSIS Driver:WiFi:Custom
+    - component: ARM::CMSIS Driver:VIO:Custom
+    - component: ARM::CMSIS Driver:VIO:Virtual
+    - component: Keil::Device:Startup
+    - component: Keil::Device:StdPeriph Drivers:ADC
+    - component: Keil::Device:StdPeriph Drivers:BKP
+    - component: Keil::Device:StdPeriph Drivers:CAN
+    - component: Keil::Device:StdPeriph Drivers:CEC
+    - component: Keil::Device:StdPeriph Drivers:CRC
+    - component: Keil::Device:StdPeriph Drivers:DAC
+    - component: Keil::Device:StdPeriph Drivers:DBGMCU
+    - component: Keil::Device:StdPeriph Drivers:DMA
+    - component: Keil::Device:StdPeriph Drivers:EXTI
+    - component: Keil::Device:StdPeriph Drivers:Flash
+    - component: Keil::Device:StdPeriph Drivers:Framework
+    - component: Keil::Device:StdPeriph Drivers:FSMC
+    - component: Keil::Device:StdPeriph Drivers:GPIO
+    - component: Keil::Device:StdPeriph Drivers:I2C
+    - component: Keil::Device:StdPeriph Drivers:IWDG
+    - component: Keil::Device:StdPeriph Drivers:PWR
+    - component: Keil::Device:StdPeriph Drivers:RCC
+    - component: Keil::Device:StdPeriph Drivers:RTC
+    - component: Keil::Device:StdPeriph Drivers:SDIO
+    - component: Keil::Device:StdPeriph Drivers:SPI
+    - component: Keil::Device:StdPeriph Drivers:TIM
+    - component: Keil::Device:StdPeriph Drivers:USART
+    - component: Keil::Device:StdPeriph Drivers:WWDG
+    - component: Keil::Device:GPIO
+    - component: Keil::Device:DMA
+    - component: ARM::CMSIS:RTOS2:Keil RTX5&Library@5.5.4
+    - component: Tencent::TencentOS tiny&MDK-ARM:arch:arch
+    - component: Tencent::TencentOS tiny&MDK-ARM:cmsis_os:cmsis_os
+    - component: Tencent::TencentOS tiny&MDK-ARM:cmsis_os:cmsis_os2
+    - component: Tencent::TencentOS tiny&MDK-ARM:kernel:core
+    - component: Tencent::TencentOS tiny&MDK-ARM:kernel:hal
+    - component: Tencent::TencentOS tiny&MDK-ARM:kernel:tos_config
+    - component: Tencent::TencentOS tiny&MDK-ARM:example:helloworld_main
+    - component: Tencent::TencentOS tiny&MDK-ARM:example:mcu_it.c
+    - component: Tencent::TencentOS tiny&MDK-ARM:example:mcu_platform.h

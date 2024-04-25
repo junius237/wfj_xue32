@@ -1683,7 +1683,7 @@ Image component sizes
        172         16          0          2          0       1887   delay.o
        144         12          0          0          0        907   led.o
        144         28          0          0          0        531   main.o
-        64         26        304          0       1536        932   startup_stm32f103xe.o
+        64         26        304          0       1536        936   startup_stm32f103xe.o
        154         32          0          9          0       6395   stm32f1xx_hal.o
        344         22          0          0          0      30065   stm32f1xx_hal_cortex.o
        424         10          0          0          0       1239   stm32f1xx_hal_dma.o
@@ -1698,7 +1698,7 @@ Image component sizes
        440         54          0          7        264       5429   usart.o
 
     ----------------------------------------------------------------------
-      6812        426        360         32       1872     564119   Object Totals
+      6812        426        360         32       1872     564123   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         12          0          0          6          0          0   (incl. Padding)
 
@@ -1757,8 +1757,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7684        468        360         32       1968     561419   Grand Totals
-      7684        468        360         32       1968     561419   ELF Image Totals
+      7684        468        360         32       1968     561423   Grand Totals
+      7684        468        360         32       1968     561423   ELF Image Totals
       7684        468        360         32          0          0   ROM Totals
 
 ==============================================================================

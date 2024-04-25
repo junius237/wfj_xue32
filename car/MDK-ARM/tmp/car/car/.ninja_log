@@ -1,0 +1,26 @@
+# ninja log v5
+0	39	0	CMakeFiles/database	137cf795fd270486
+5	202	7328180375755615	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Core/Src/system_stm32f1xx.o	9c55a0a8edb245f3
+0	39	0	E:/Desktop/f32xuexi/car/MDK-ARM/tmp/car/car/CMakeFiles/database	137cf795fd270486
+2	94	7329005787803104	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/MDK-ARM/startup_stm32f103xe.o	4c593811a4d6b322
+9	262	7328180376472330	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Core/Src/stm32f1xx_hal_msp.o	ce2a967e2d0dacd0
+7	223	7328180376083320	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Core/Src/stm32f1xx_it.o	91edd945f6bb712
+13	447	7328180378439052	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.o	a06ad9b51de293f6
+1	104	7329024571679427	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Core/Src/main.o	a8aab28a109b227d
+60	312	7328180377088394	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o	4c8bd06dc69bdda6
+42	314	7328180377088394	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o	af03e14b5295cf04
+17	292	7328180376768516	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o	76a70e6d7eba1b0
+47	820	7328180382084767	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.o	2c7c04fb1bfd2445
+24	293	7328180376868507	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o	5fffe195e101a13f
+30	322	7328180377097811	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o	4c358495b6a6ade5
+11	326	7328180377192915	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o	ac74ed3b53afa1dc
+34	351	7328180377494904	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o	87e68f81922294c4
+38	360	7328180377505929	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o	40b52ed7a2e905ea
+203	381	7328180377802999	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o	5ed15254697e2d1b
+52	340	7328180377369894	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o	1821ecaecc12cd98
+64	361	7328180377505929	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o	31726e50df5947b2
+20	403	7328180378011596	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.o	5860ebc872135a7
+26	414	7328180378097752	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o	40838784530a57c0
+56	416	7328180378087765	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o	cc922c19707cb3e2
+104	161	7329024572180496	E:/Desktop/f32xuexi/car/MDK-ARM/out/car/car/car.axf	51a746cf80826980
+70	620	7328180380077058	CMakeFiles/car.dir/E_/Desktop/f32xuexi/car/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o	80b8e228f4065896

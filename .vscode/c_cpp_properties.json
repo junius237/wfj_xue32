@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Win64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**/../"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "windows-gcc-x64",
+            "configurationProvider": "cmsis-csolution",
+            "compilerPath": "D:/MinGW64/bin/gcc.exe",
+            "cStandard": "c99"
+        }
+    ],
+    "version": 4
+}

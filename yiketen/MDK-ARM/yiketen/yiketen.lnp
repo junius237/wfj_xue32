@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"yiketen\startup_stm32f103xe.o"
+"yiketen\main.o"
+"yiketen\gpio.o"
+"yiketen\stm32f1xx_it.o"
+"yiketen\stm32f1xx_hal_msp.o"
+"yiketen\stm32f1xx_hal_gpio_ex.o"
+"yiketen\stm32f1xx_hal_tim.o"
+"yiketen\stm32f1xx_hal_tim_ex.o"
+"yiketen\stm32f1xx_hal.o"
+"yiketen\stm32f1xx_hal_rcc.o"
+"yiketen\stm32f1xx_hal_rcc_ex.o"
+"yiketen\stm32f1xx_hal_gpio.o"
+"yiketen\stm32f1xx_hal_dma.o"
+"yiketen\stm32f1xx_hal_cortex.o"
+"yiketen\stm32f1xx_hal_pwr.o"
+"yiketen\stm32f1xx_hal_flash.o"
+"yiketen\stm32f1xx_hal_flash_ex.o"
+"yiketen\stm32f1xx_hal_exti.o"
+"yiketen\system_stm32f1xx.o"
+--strict --scatter "yiketen\yiketen.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "yiketen.map" -o yiketen\yiketen.axf

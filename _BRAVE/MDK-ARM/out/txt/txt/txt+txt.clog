@@ -1,0 +1,13 @@
+# CMSIS Build Audit File generated on 2024-04-01T19:29:57
+
+# Project Description File: e:/Desktop/f32xuexi/_BRAVE/MDK-ARM/txt+txt.cprj
+
+# Toolchain Configuration File: C:/Users/20233/.vcpkg/artifacts/2139c4c6/tools.open.cmsis.pack.cmsis.toolbox/2.2.1/etc/AC6.6.18.0.cmake
+
+# Package: ARM::CMSIS@5.9.0
+  Location: C:\Users\20233\AppData\Local\arm\packs/ARM/CMSIS/5.9.0/
+
+  * Component: ARM::CMSIS:CORE@5.6.0
+
+# Package: Keil::STM32F1xx_DFP@2.4.1
+  Location: C:\Users\20233\AppData\Local\arm\packs/Keil/STM32F1xx_DFP/2.4.1/
