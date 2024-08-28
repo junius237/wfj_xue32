@@ -1,0 +1,47 @@
+T2A64 002:174.519   SEGGER J-Link V7.96l Log File
+T2A64 002:177.026   DLL Compiled: Jun 12 2024 18:52:06
+T2A64 002:177.050   Logging started @ 2024-08-28 06:13
+T2A64 002:177.072   Process: E:\keil 5 MDK\UV4\UV4.exe
+T2A64 002:177.287 - 2177.094ms
+T2A64 002:177.478 JLINK_SetWarnOutHandler(...)
+T2A64 002:177.501 - 0.187ms
+T2A64 002:177.524 JLINK_OpenEx(...)
+T2A64 002:180.194   
+  ***** Error: 
+T2A64 002:180.239   Cannot connect to J-Link.
+T2A64 002:180.598 - 3.072ms returns "Cannot connect to J-Link."
+T2A64 002:180.774 
+  ***** Warning: 
+T2A64 002:180.813 API Error: API JLINK_GetHardwareVersion function called before JLINKARM_Open()
+T2A64 002:180.850 JLINK_GetHardwareVersion()
+T2A64 002:182.294   
+  ***** Error: 
+T2A64 002:182.388   Cannot connect to J-Link.
+T2A64 002:182.426 - 1.575ms
+T2A64 003:757.524 JLINK_IsOpen()
+T2A64 003:757.580 - 0.068ms returns 0x00
+T2A64 003:757.604 JLINK_EMU_SelectByUSBSN(SerialNo = 0)
+T2A64 003:758.614 - 1.008ms returns 0xFFFFFFFF
+T2A64 003:758.644 JLINK_EnableLog(...)
+T2A64 003:758.663 - 0.019ms
+T2A64 003:758.683 JLINK_SetLogFile(...)
+T2A64 003:758.701 - 0.018ms
+T2A64 003:758.721 JLINK_SetWarnOutHandler(...)
+T2A64 003:758.738 - 0.017ms
+T2A64 003:758.754 JLINK_OpenEx(...)
+T2A64 003:760.407   
+  ***** Error: 
+T2A64 003:760.431   Cannot connect to J-Link.
+T2A64 003:760.482 - 1.728ms returns "Cannot connect to J-Link."
+T2A64 003:760.614 
+  ***** Warning: 
+T2A64 003:760.630 API Error: API JLINK_GetHardwareVersion function called before JLINKARM_Open()
+T2A64 003:760.646 JLINK_GetHardwareVersion()
+T2A64 003:762.013   
+  ***** Error: 
+T2A64 003:762.032   Cannot connect to J-Link.
+T2A64 003:762.066 - 1.420ms
+T2A64 010:028.885 JLINK_Close()
+T2A64 010:028.959 - 0.074ms
+T2A64 010:028.974   
+T2A64 010:028.985   Closed
