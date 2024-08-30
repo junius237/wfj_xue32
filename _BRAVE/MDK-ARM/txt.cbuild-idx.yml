@@ -1,9 +1,0 @@
-build-idx:
-  generated-by: csolution version 2.2.1
-  csolution: txt.csolution.yml
-  cprojects:
-    - cproject: txt.cproject.yml
-  cbuilds:
-    - cbuild: txt+txt.cbuild.yml
-      project: txt
-      configuration: +txt

@@ -1,8 +1,0 @@
-{
-    "commentTranslate.hover.enabled": true,
-    "commentTranslate.source": "Google",
-    "commentTranslate.targetLanguage": "zh-CN",
-    "files.associations": {
-        "stm32f1xx_hal.h": "c"
-    }
-}

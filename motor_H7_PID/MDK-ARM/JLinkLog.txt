@@ -1,0 +1,154 @@
+T51A4 000:162.093   SEGGER J-Link V7.92k Log File
+T51A4 000:162.197   DLL Compiled: Oct 18 2023 14:58:31
+T51A4 000:162.208   Logging started @ 2024-05-29 12:52
+T51A4 000:162.218   Process: E:\keil 5 MDK\UV4\UV4.exe
+T51A4 000:162.231 - 162.229ms
+T51A4 000:162.250 JLINK_SetWarnOutHandler(...)
+T51A4 000:162.263 - 0.013ms
+T51A4 000:162.274 JLINK_OpenEx(...)
+T51A4 000:165.508   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T51A4 000:166.519   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T51A4 000:166.655   Decompressing FW timestamp took 98 us
+T51A4 000:177.067   Hardware: V9.70
+T51A4 000:177.100   S/N: 20723915
+T51A4 000:177.116   OEM: SEGGER
+T51A4 000:177.131   Feature(s): JFlash
+T51A4 000:178.742   Bootloader: (Could not read)
+T51A4 000:180.336   TELNET listener socket opened on port 19021
+T51A4 000:180.434   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T51A4 000:180.568   WEBSRV Webserver running on local port 19080
+T51A4 000:180.670   Looking for J-Link GUI Server exe at: E:\keil 5 MDK\ARM\Segger\JLinkGUIServer.exe
+T51A4 000:180.831   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V796b\JLinkGUIServer.exe
+T51A4 000:180.917   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink_V796b\JLinkGUIServer.exe
+T51A4 000:209.904   J-Link GUI Server info: "J-Link GUI server V7.96b "
+T51A4 000:211.795 - 49.515ms returns "O.K."
+T51A4 000:211.831 JLINK_GetEmuCaps()
+T51A4 000:211.845 - 0.012ms returns 0xB9FF7BBF
+T51A4 000:211.859 JLINK_TIF_GetAvailable(...)
+T51A4 000:212.213 - 0.353ms
+T51A4 000:212.238 JLINK_SetErrorOutHandler(...)
+T51A4 000:212.249 - 0.011ms
+T51A4 000:212.276 JLINK_ExecCommand("ProjectFile = "E:\Desktop\f32xuexi\motor_H7_PID\MDK-ARM\JLinkSettings.ini"", ...). 
+T51A4 000:222.162   Ref file found at: E:\keil 5 MDK\ARM\Segger\JLinkDevices.ref
+T51A4 000:222.321   REF file references invalid XML file: C:\Program Files\SEGGER\JLink_V796b\JLinkDevices.xml
+T51A4 000:222.518 - 10.243ms returns 0x00
+T51A4 000:222.540 JLINK_ExecCommand("Device = STM32H743IITx", ...). 
+T51A4 000:223.254   Flash bank @ 0x90000000: SFL: Parsing sectorization info from ELF file
+T51A4 000:223.279     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T51A4 000:235.596   Device "STM32H743II" selected.
+T51A4 000:236.018 - 13.465ms returns 0x00
+T51A4 000:236.039 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T51A4 000:236.050 - 0.001ms returns 0x01
+T51A4 000:236.061 JLINK_GetHardwareVersion()
+T51A4 000:236.071 - 0.009ms returns 97000
+T51A4 000:236.084 JLINK_GetDLLVersion()
+T51A4 000:236.093 - 0.009ms returns 79211
+T51A4 000:236.103 JLINK_GetOEMString(...)
+T51A4 000:236.113 JLINK_GetFirmwareString(...)
+T51A4 000:236.122 - 0.009ms
+T51A4 000:236.134 JLINK_GetDLLVersion()
+T51A4 000:236.144 - 0.009ms returns 79211
+T51A4 000:236.154 JLINK_GetCompileDateTime()
+T51A4 000:236.164 - 0.009ms
+T51A4 000:236.176 JLINK_GetFirmwareString(...)
+T51A4 000:236.185 - 0.009ms
+T51A4 000:236.196 JLINK_GetHardwareVersion()
+T51A4 000:236.206 - 0.009ms returns 97000
+T51A4 000:236.216 JLINK_GetSN()
+T51A4 000:236.226 - 0.009ms returns 20723915
+T51A4 000:236.237 JLINK_GetOEMString(...)
+T51A4 000:236.249 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T51A4 000:238.912 - 2.662ms returns 0x00
+T51A4 000:238.944 JLINK_HasError()
+T51A4 000:238.962 JLINK_SetSpeed(50000)
+T51A4 000:239.453 - 0.491ms
+T51A4 000:239.823 JLINK_HasError()
+T51A4 000:239.839 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T51A4 000:239.848 - 0.009ms returns JLINKARM_RESET_TYPE_NORMAL
+T51A4 000:239.859 JLINK_Reset()
+T51A4 000:240.545   ConfigTargetSettings() start
+T51A4 000:240.568    J-Link Script File: Executing ConfigTargetSettings()
+T51A4 000:240.587   ConfigTargetSettings() end - Took 18us
+T51A4 000:240.602   InitTarget() start
+T51A4 000:240.615    J-Link Script File: Executing InitTarget()
+T51A4 000:241.251   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 000:343.337   Error: Failed to initialized DAP.
+T51A4 000:343.382   Can not attach to CPU. Trying connect under reset.
+T51A4 000:395.537   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 000:498.963   Error: Failed to initialized DAP.
+T51A4 000:499.016   Connecting to CPU via connect under reset failed.
+T51A4 000:550.196   InitTarget() end - Took 309ms
+T51A4 000:550.274   Connect failed. Resetting via Reset pin and trying again.
+T51A4 000:612.581   ConfigTargetSettings() start
+T51A4 000:612.633    J-Link Script File: Executing ConfigTargetSettings()
+T51A4 000:612.657   ConfigTargetSettings() end - Took 22us
+T51A4 000:612.677   InitTarget() start
+T51A4 000:612.696    J-Link Script File: Executing InitTarget()
+T51A4 000:613.620   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 000:717.771   Error: Failed to initialized DAP.
+T51A4 000:717.855   Can not attach to CPU. Trying connect under reset.
+T51A4 000:769.453   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 000:873.463   Error: Failed to initialized DAP.
+T51A4 000:873.529   Connecting to CPU via connect under reset failed.
+T51A4 000:924.983   InitTarget() end - Took 312ms
+T51A4 000:925.086 - 685.226ms
+T51A4 000:925.431 JLINK_GetId()
+T51A4 000:926.408   ConfigTargetSettings() start
+T51A4 000:926.485    J-Link Script File: Executing ConfigTargetSettings()
+T51A4 000:926.531   ConfigTargetSettings() end - Took 43us
+T51A4 000:926.574   InitTarget() start
+T51A4 000:926.613    J-Link Script File: Executing InitTarget()
+T51A4 000:927.578   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 001:031.306   Error: Failed to initialized DAP.
+T51A4 001:031.367   Can not attach to CPU. Trying connect under reset.
+T51A4 001:084.042   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 001:188.309   Error: Failed to initialized DAP.
+T51A4 001:188.394   Connecting to CPU via connect under reset failed.
+T51A4 001:239.371   InitTarget() end - Took 312ms
+T51A4 001:239.435   Connect failed. Resetting via Reset pin and trying again.
+T51A4 001:302.395   ConfigTargetSettings() start
+T51A4 001:302.549    J-Link Script File: Executing ConfigTargetSettings()
+T51A4 001:302.626   ConfigTargetSettings() end - Took 73us
+T51A4 001:302.694   InitTarget() start
+T51A4 001:302.757    J-Link Script File: Executing InitTarget()
+T51A4 001:304.107   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 001:408.574   Error: Failed to initialized DAP.
+T51A4 001:408.649   Can not attach to CPU. Trying connect under reset.
+T51A4 001:460.688   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 001:564.508   Error: Failed to initialized DAP.
+T51A4 001:564.572   Connecting to CPU via connect under reset failed.
+T51A4 001:615.716   InitTarget() end - Took 312ms
+T51A4 001:615.815 - 690.383ms returns 0x00000000
+T51A4 001:615.884 JLINK_GetId()
+T51A4 001:616.871   ConfigTargetSettings() start
+T51A4 001:616.959    J-Link Script File: Executing ConfigTargetSettings()
+T51A4 001:617.007   ConfigTargetSettings() end - Took 45us
+T51A4 001:617.049   InitTarget() start
+T51A4 001:617.088    J-Link Script File: Executing InitTarget()
+T51A4 001:618.038   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 001:722.277   Error: Failed to initialized DAP.
+T51A4 001:722.378   Can not attach to CPU. Trying connect under reset.
+T51A4 001:775.035   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 001:879.703   Error: Failed to initialized DAP.
+T51A4 001:879.756   Connecting to CPU via connect under reset failed.
+T51A4 001:931.224   InitTarget() end - Took 314ms
+T51A4 001:931.416   Connect failed. Resetting via Reset pin and trying again.
+T51A4 001:995.976   ConfigTargetSettings() start
+T51A4 001:996.086    J-Link Script File: Executing ConfigTargetSettings()
+T51A4 001:996.145   ConfigTargetSettings() end - Took 55us
+T51A4 001:996.198   InitTarget() start
+T51A4 001:996.246    J-Link Script File: Executing InitTarget()
+T51A4 001:997.149   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 002:102.289   Error: Failed to initialized DAP.
+T51A4 002:102.392   Can not attach to CPU. Trying connect under reset.
+T51A4 002:155.149   SWD selected. Executing JTAG -> SWD switching sequence.
+T51A4 002:259.647   Error: Failed to initialized DAP.
+T51A4 002:259.721   Connecting to CPU via connect under reset failed.
+T51A4 002:311.238   InitTarget() end - Took 314ms
+T51A4 002:311.328 - 695.443ms returns 0x00000000
+T51A4 002:317.831 JLINK_GetFirmwareString(...)
+T51A4 002:317.858 - 0.026ms
+T51A4 015:815.667 JLINK_Close()
+T51A4 015:829.996 - 14.327ms
+T51A4 015:830.033   
+T51A4 015:830.044   Closed

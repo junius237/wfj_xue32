@@ -1,9 +1,0 @@
-build-idx:
-  generated-by: csolution version 2.2.1
-  csolution: car.csolution.yml
-  cprojects:
-    - cproject: car.cproject.yml
-  cbuilds:
-    - cbuild: car+car.cbuild.yml
-      project: car
-      configuration: +car

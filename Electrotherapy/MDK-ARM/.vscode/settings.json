@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "usart.h": "c",
+        "main.h": "c",
+        "time_handle.h": "c"
+    },
+    "commentTranslate.source": "DarkCWK.youdao-youdao"
+}

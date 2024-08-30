@@ -1,4 +1,0 @@
-E:/Desktop/f32xuexi/_BRAVE/MDK-ARM/tmp/txt/txt/CMakeFiles/database.dir
-E:/Desktop/f32xuexi/_BRAVE/MDK-ARM/tmp/txt/txt/CMakeFiles/txt.dir
-E:/Desktop/f32xuexi/_BRAVE/MDK-ARM/tmp/txt/txt/CMakeFiles/edit_cache.dir
-E:/Desktop/f32xuexi/_BRAVE/MDK-ARM/tmp/txt/txt/CMakeFiles/rebuild_cache.dir
