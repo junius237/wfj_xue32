@@ -1,79 +1,73 @@
 #include "pid.h"
+#include "control.h"
 
-PID pid;
+#define MAX_OUTPUT 500
+#define MIN_OUTPUT -500
+
+PID pid[4];
 
 /**
  * @brief  PID参数初始化
  *	@note 	无
  * @retval 无
  */
-void PID_param_init()
+void PID_init(float p[], float i[], float d[])
 {
+
   /* 初始化参数 */
-  pid.target_val = 300.0;
-  pid.actual_val = 0.0;
-  pid.err = 0.0;
-  pid.err_last = 0.0;
-  pid.integral = 0.0;
-
-  pid.Kp = 5.0;
-  pid.Ki = 2.8;
-  pid.Kd = 2.1;
+  for (int a = 0; a < 4; a++)
+  {
+    pid[a].target_val = 50; // 目标值
+    pid[a].output_val = 0;  // 输出值
+    pid[a].err = 0;         // 偏差值
+    pid[a].err_last = 0;    // 上一个偏差值
+    pid[a].err_prev = 0;    // 上上一个偏差值
+    pid[a].Kp = p[a];       // 比例系数
+    pid[a].Ki = i[a];       // 积分系数
+    pid[a].Kd = d[a];       // 微分系数
+    pid[a].integral = 0;    // 积分值
+  }
 }
 
 /**
- * @brief  设置目标值
- * @param  val		目标值
- *	@note 	无
- * @retval 无
- */
-void setpid_target(float temp_val)
-{
-  pid.target_val = temp_val; // 设置当前的目标值
-}
-
-/**
- * @brief  获取目标值
- * @param  无
- *	@note 	无
- * @retval 目标值
- */
-float getpid_target(void)
-{
-  return pid.target_val; // 设置当前的目标值
-}
-
-/**
- * @brief  设置比例、积分、微分系数
- * @param  p：比例系数 P
- * @param  i：积分系数 i
- * @param  d：微分系数 d
- *	@note 	无
- * @retval 无
- */
-void set_p_i_d(float p, float i, float d)
-{
-  pid.Kp = p; // 设置比例系数 P
-  pid.Ki = i; // 设置积分系数 I
-  pid.Kd = d; // 设置微分系数 D
-}
-
-/**
- * @brief  PID算法实现
- * @param  actual_val:实际值
- *	@note 	无
+ * @brief  PID算法实现(增量式 PID)
+ * @param  index: PID控制器索引
+ * @param  actual_val: 当前实际值
+ * @note   无
  * @retval 通过PID计算后的输出
  */
-float PID_realize(float actual_val)
+
+float PID_realize(int index)
 {
-  /*计算目标值与实际值的误差*/
-  pid.err = pid.target_val - actual_val;
-  /*误差累积*/
-  pid.integral += pid.err;
-  /*PID算法实现*/
-  pid.actual_val = pid.Kp * pid.err + pid.Ki * pid.integral + pid.Kd * (pid.err - pid.err_last);
-  /*误差传递*/
-  pid.err_last = pid.err;
-  /*返回当前实际值*/
-  return pid.actual_val;
+  if (index < 0 || index >= 4)
+    return HAL_ERROR; // 确保索引有效
+
+  int actual_val;
+  actual_val = Get_Speed(index); // 获取当前实际值
+
+  pid[index].actual_val = actual_val;
+
+  // 计算当前误差
+  pid[index].err = pid[index].target_val - actual_val;
+
+  // 计算增量式 PID 的控制增量 Δoutput
+  float delta_output = pid[index].Kp * (pid[index].err - pid[index].err_last) +
+                       pid[index].Ki * pid[index].err +
+                       pid[index].Kd * (pid[index].err - 2 * pid[index].err_last + pid[index].err_prev);
+
+  // 更新输出值
+  pid[index].output_val += delta_output;
+
+  //限制输出值，防止饱和
+  if (pid[index].output_val > MAX_OUTPUT)
+    pid[index].output_val = MAX_OUTPUT;
+  else if (pid[index].output_val < MIN_OUTPUT)
+    pid[index].output_val = MIN_OUTPUT;
+
+  // 更新误差历史
+  pid[index].err_prev = pid[index].err_last;
+  pid[index].err_last = pid[index].err;
+
+  // 返回更新后的输出值
+  return pid[index].output_val;
 }

@@ -29,7 +29,7 @@
 "smart_1\stm32h7xx_hal_uart.o"
 "smart_1\stm32h7xx_hal_uart_ex.o"
 "smart_1\system_stm32h7xx.o"
---strict --scatter "smart_1\smart_1.sct"
+--library_type=microlib --strict --scatter "smart_1\smart_1.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "smart_1.map" -o smart_1\smart_1.axf

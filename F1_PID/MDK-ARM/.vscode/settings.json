@@ -1,0 +1,7 @@
+{
+    "commentTranslate.source": "Google",
+    "files.associations": {
+        "math.h": "c",
+        "stm32f1xx.h": "c"
+    }
+}

@@ -3,12 +3,12 @@ smart_1/pid.o: ..\Core\Src\pid.c ..\Core\Inc\pid.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h743xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
   E:\keil\ 5\ MDK\ARM\ARMCLANG\include\stdint.h \
-  e:\Desktop\f32xuexi\smart_1_usat\Drivers\CMSIS\Include\cmsis_version.h \
-  e:\Desktop\f32xuexi\smart_1_usat\Drivers\CMSIS\Include\cmsis_compiler.h \
-  e:\Desktop\f32xuexi\smart_1_usat\Drivers\CMSIS\Include\cmsis_armclang.h \
+  E:\Desktop\f32xuexi\smart_1_usat\Drivers\CMSIS\Include\cmsis_version.h \
+  E:\Desktop\f32xuexi\smart_1_usat\Drivers\CMSIS\Include\cmsis_compiler.h \
+  E:\Desktop\f32xuexi\smart_1_usat\Drivers\CMSIS\Include\cmsis_armclang.h \
   E:\keil\ 5\ MDK\ARM\ARMCLANG\include\arm_compat.h \
   E:\keil\ 5\ MDK\ARM\ARMCLANG\include\arm_acle.h \
-  e:\Desktop\f32xuexi\smart_1_usat\Drivers\CMSIS\Include\mpu_armv7.h \
+  E:\Desktop\f32xuexi\smart_1_usat\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \

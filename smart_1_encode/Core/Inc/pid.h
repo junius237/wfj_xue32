@@ -1,7 +1,7 @@
 #ifndef __PID_H
 #define __PID_H
 
-#include "stm32H7xx.h"
+#include "stm32h7xx.h"
 #include "tim.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,18 +10,17 @@
 typedef struct
 {
     float target_val; // 目标值
-    float actual_val; // 实际值
+    int actual_val; // 实际值
+    float output_val; // 输出值
     float err;        // 定义偏差值
     float err_last;   // 定义上一个偏差值
+    float err_prev;   // 定义上上一个偏差值
     float Kp, Ki, Kd; // 定义比例、积分、微分系数
     float integral;   // 定义积分值
 } PID;
-
-extern void PID_param_init(void);
-extern void setpid_target(float temp_val);
-extern float get_pid_target(void);
-extern void set_p_i_d(float p, float i, float d);
-extern float PID_realize(float actual_val);
-extern void time_period_fun(void);
+extern PID pid[4];
+extern void PID_init(float p[], float i[], float d[]);
+extern void set_p_i_d(int index, float p[], float i[], float d[]);
+extern float PID_realize(int index);
 
 #endif

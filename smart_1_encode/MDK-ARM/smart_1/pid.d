@@ -1,22 +1,13 @@
 smart_1/pid.o: ..\Core\Src\pid.c ..\Core\Inc\pid.h \
-  ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32H7xx.h \
+  ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h7xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\stm32h743xx.h \
   ..\Drivers\CMSIS\Include\core_cm7.h \
-  E:\keil\ 5\ MDK\ARM\ARMCLANG\include\stdint.h \
-  e:\Desktop\f32xuexi\smart_1_encode\Drivers\CMSIS\Include\cmsis_version.h \
-  e:\Desktop\f32xuexi\smart_1_encode\Drivers\CMSIS\Include\cmsis_compiler.h \
-  e:\Desktop\f32xuexi\smart_1_encode\Drivers\CMSIS\Include\cmsis_armclang.h \
-  E:\keil\ 5\ MDK\ARM\ARMCLANG\include\arm_compat.h \
-  E:\keil\ 5\ MDK\ARM\ARMCLANG\include\arm_acle.h \
-  e:\Desktop\f32xuexi\smart_1_encode\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32H7xx\Include\system_stm32h7xx.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal.h \
   ..\Core\Inc\stm32h7xx_hal_conf.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_def.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  E:\keil\ 5\ MDK\ARM\ARMCLANG\include\stddef.h \
-  E:\keil\ 5\ MDK\ARM\ARMCLANG\include\math.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_rcc_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_gpio_ex.h \
@@ -34,6 +25,7 @@ smart_1/pid.o: ..\Core\Src\pid.c ..\Core\Inc\pid.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_pwr_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim_ex.h \
-  ..\Core\Inc\tim.h ..\Core\Inc\main.h \
-  E:\keil\ 5\ MDK\ARM\ARMCLANG\include\stdio.h \
-  E:\keil\ 5\ MDK\ARM\ARMCLANG\include\stdlib.h
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h \
+  ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
+  ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\Core\Inc\control.h \
+  ..\Core\Inc\gpio.h
