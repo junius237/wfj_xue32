@@ -1,191 +1,122 @@
-#include "delay.h"
-#include "usart.h"	
-////////////////////////////////////////////////////////////////////////////////// 	 
-//���ʹ��ucos,����������ͷ�ļ�����.
-#if SYSTEM_SUPPORT_OS
-#include "includes.h"					//ucos ʹ��	  
-#endif
-	    
-#if 1
-#pragma import(__use_no_semihosting)             
-//��׼����Ҫ��֧�ֺ���                 
-struct __FILE 
-{ 
-	int handle; 
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    usart.c
+  * @brief   This file provides code for the configuration
+  *          of the USART instances.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "usart.h"
 
-}; 
+/* USER CODE BEGIN 0 */
 
-FILE __stdout;       
-//����_sys_exit()�Ա���ʹ�ð�����ģʽ    
-void _sys_exit(int x) 
-{ 
-	x = x; 
-} 
-//�ض���fputc���� 
-int fputc(int ch, FILE *f)
-{      
-	while((USART1->SR&0X40)==0);//ѭ������,ֱ���������   
-    USART1->DR = (uint8_t) ch;      
-	return ch;
-}
-#endif 
+/* USER CODE END 0 */
 
+UART_HandleTypeDef huart1;
 
-#if EN_USART1_RX   //���ʹ���˽���
-//����1�жϷ������
-//ע��,��ȡUSARTx->SR�ܱ���Ī������Ĵ���   	
-uint8_t USART_RX_BUF[USART_REC_LEN];     //���ջ���,���USART_REC_LEN���ֽ�.
-//����״̬
-//bit15��	������ɱ�־
-//bit14��	���յ�0x0d
-//bit13~0��	���յ�����Ч�ֽ���Ŀ
-uint16_t USART_RX_STA=0;       //����״̬���	  
+/* USART1 init function */
 
-uint8_t aRxBuffer[RXBUFFERSIZE];//HAL��ʹ�õĴ��ڽ��ջ���
-UART_HandleTypeDef UART1_Handler; //UART���
-  
-//��ʼ��IO ����1 
-//bound:������
-void uart_init(uint32_t bound)
-{	
-	//UART ��ʼ������
-	UART1_Handler.Instance=USART1;					    //USART1
-	UART1_Handler.Init.BaudRate=bound;				    //������
-	UART1_Handler.Init.WordLength=UART_WORDLENGTH_8B;   //�ֳ�Ϊ8λ���ݸ�ʽ
-	UART1_Handler.Init.StopBits=UART_STOPBITS_1;	    //һ��ֹͣλ
-	UART1_Handler.Init.Parity=UART_PARITY_NONE;		    //����żУ��λ
-	UART1_Handler.Init.HwFlowCtl=UART_HWCONTROL_NONE;   //��Ӳ������
-	UART1_Handler.Init.Mode=UART_MODE_TX_RX;		    //�շ�ģʽ
-	HAL_UART_Init(&UART1_Handler);					    //HAL_UART_Init()��ʹ��UART1
-	
-	HAL_UART_Receive_IT(&UART1_Handler, (uint8_t *)aRxBuffer, RXBUFFERSIZE);//�ú����Ὺ�������жϣ���־λUART_IT_RXNE���������ý��ջ����Լ����ջ���������������
-  
-}
-
-//UART�ײ��ʼ����ʱ��ʹ�ܣ��������ã��ж�����
-//�˺����ᱻHAL_UART_Init()����
-//huart:���ھ��
-
-void HAL_UART_MspInit(UART_HandleTypeDef *huart)
+void MX_USART1_UART_Init(void)
 {
-    //GPIO�˿�����
-	GPIO_InitTypeDef GPIO_Initure;
-	
-	if(huart->Instance==USART1)//����Ǵ���1�����д���1 MSP��ʼ��
-	{
-		__HAL_RCC_GPIOA_CLK_ENABLE();			//ʹ��GPIOAʱ��
-		__HAL_RCC_USART1_CLK_ENABLE();			//ʹ��USART1ʱ��
-		__HAL_RCC_AFIO_CLK_ENABLE();
-	
-		GPIO_Initure.Pin=GPIO_PIN_9;			//PA9
-		GPIO_Initure.Mode=GPIO_MODE_AF_PP;		//�����������
-		GPIO_Initure.Pull=GPIO_PULLUP;			//����
-		GPIO_Initure.Speed=GPIO_SPEED_FREQ_HIGH;//����
-		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//��ʼ��PA9
 
-		GPIO_Initure.Pin=GPIO_PIN_10;			//PA10
-		GPIO_Initure.Mode=GPIO_MODE_AF_INPUT;	//ģʽҪ����Ϊ��������ģʽ��	
-		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//��ʼ��PA10
-		
-#if EN_USART1_RX
-		HAL_NVIC_EnableIRQ(USART1_IRQn);				//ʹ��USART1�ж�ͨ��
-		HAL_NVIC_SetPriority(USART1_IRQn,3,3);			//��ռ���ȼ�3�������ȼ�3
-#endif	
-	}
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
 {
-	if(huart->Instance==USART1)//����Ǵ���1
-	{
-		if((USART_RX_STA&0x8000)==0)//����δ���
-		{
-			if(USART_RX_STA&0x4000)//���յ���0x0d
-			{
-				if(aRxBuffer[0]!=0x0a)USART_RX_STA=0;//���մ���,���¿�ʼ
-				else USART_RX_STA|=0x8000;	//��������� 
-			}
-			else //��û�յ�0X0D
-			{	
-				if(aRxBuffer[0]==0x0d)USART_RX_STA|=0x4000;
-				else
-				{
-					USART_RX_BUF[USART_RX_STA&0X3FFF]=aRxBuffer[0] ;
-					USART_RX_STA++;
-					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//�������ݴ���,���¿�ʼ����	  
-				}		 
-			}
-		}
-	}
+
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(uartHandle->Instance==USART1)
+  {
+  /* USER CODE BEGIN USART1_MspInit 0 */
+
+  /* USER CODE END USART1_MspInit 0 */
+    /* USART1 clock enable */
+    __HAL_RCC_USART1_CLK_ENABLE();
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    /**USART1 GPIO Configuration
+    PA9     ------> USART1_TX
+    PA10     ------> USART1_RX
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_9;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_10;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    /* USART1 interrupt Init */
+    HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(USART1_IRQn);
+  /* USER CODE BEGIN USART1_MspInit 1 */
+
+  /* USER CODE END USART1_MspInit 1 */
+  }
 }
- 
-//����1�жϷ������
-void USART1_IRQHandler(void)                	
-{ 
-	uint32_t timeout=0;
-#if SYSTEM_SUPPORT_OS	 	//ʹ��OS
-	OSIntEnter();    
-#endif
-	
-	HAL_UART_IRQHandler(&UART1_Handler);	//����HAL���жϴ������ú���
-	
-	timeout=0;
-    while (HAL_UART_GetState(&UART1_Handler) != HAL_UART_STATE_READY)//�ȴ�����
-	{
-	 timeout++;////��ʱ����
-     if(timeout>HAL_MAX_DELAY) break;		
-	
-	}
-     
-	timeout=0;
-	while(HAL_UART_Receive_IT(&UART1_Handler, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)//һ�δ������֮�����¿����жϲ�����RxXferCountΪ1
-	{
-	 timeout++; //��ʱ����
-	 if(timeout>HAL_MAX_DELAY) break;	
-	}
-#if SYSTEM_SUPPORT_OS	 	//ʹ��OS
-	OSIntExit();  											 
-#endif
-} 
-#endif	
 
-/*�����������ֱ�Ӱ��жϿ����߼�д���жϷ������ڲ���*/
+void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
+{
 
-//����1�жϷ������
-//void USART1_IRQHandler(void)                	
-//{ 
-//	uint8_t Res;
-//	HAL_StatusTypeDef err;
-//#if SYSTEM_SUPPORT_OS	 	//ʹ��OS
-//	OSIntEnter();    
-//#endif
-//	if((__HAL_UART_GET_FLAG(&UART1_Handler,UART_FLAG_RXNE)!=RESET))  //�����ж�(���յ������ݱ�����0x0d 0x0a��β)
-//	{
-//		Res=USART1->DR; 
-//		if((USART_RX_STA&0x8000)==0)//����δ���
-//		{
-//			if(USART_RX_STA&0x4000)//���յ���0x0d
-//			{
-//				if(Res!=0x0a)USART_RX_STA=0;//���մ���,���¿�ʼ
-//				else USART_RX_STA|=0x8000;	//��������� 
-//			}
-//			else //��û�յ�0X0D
-//			{	
-//				if(Res==0x0d)USART_RX_STA|=0x4000;
-//				else
-//				{
-//					USART_RX_BUF[USART_RX_STA&0X3FFF]=Res ;
-//					USART_RX_STA++;
-//					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//�������ݴ���,���¿�ʼ����	  
-//				}		 
-//			}
-//		}   		 
-//	}
-//	HAL_UART_IRQHandler(&UART1_Handler);	
-//#if SYSTEM_SUPPORT_OS	 	//ʹ��OS
-//	OSIntExit();  											 
-//#endif
-//} 
-//#endif	
+  if(uartHandle->Instance==USART1)
+  {
+  /* USER CODE BEGIN USART1_MspDeInit 0 */
 
+  /* USER CODE END USART1_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_USART1_CLK_DISABLE();
 
+    /**USART1 GPIO Configuration
+    PA9     ------> USART1_TX
+    PA10     ------> USART1_RX
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_9|GPIO_PIN_10);
+
+    /* USART1 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(USART1_IRQn);
+  /* USER CODE BEGIN USART1_MspDeInit 1 */
+
+  /* USER CODE END USART1_MspDeInit 1 */
+  }
+}
+
+/* USER CODE BEGIN 1 */
+
+/* USER CODE END 1 */

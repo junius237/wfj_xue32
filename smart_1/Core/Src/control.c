@@ -4,34 +4,35 @@
 #include <pid.h>
 
 /*底盘车轮序列*/
-/****************前*********************** */
-/***************************************** */
-/*********(O)1***********(O)2************* */
-/*********|****************|************** */
-/****左***|****************|****右******** */
-/*********|****************|************** */
-/*********|****************|************** */
-/*********(O)3***********(O)4************* */
-/***************************************** */
-/***************************************** */
-/***************************************** */
+/****************前************************/
+/******************************************/
+/*********(O)1***********(O)2**************/
+/*********|****************|***************/
+/****左***|****************|****右*********/
+/*********|****************|***************/
+/*********|****************|***************/
+/*********(O)3***********(O)4**************/
+/******************************************/
+/******************************************/
+/******************************************/
 
-/************Dir=1,正转，Dir=0，反转****** */
+/************Dir=1,正转，Dir=0，反转*******/
 
 void Motor_Init(void)
 {
+
     /***1 */
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); // PA0红
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2); // PA1黑
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); // PA0
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2); // PA1
     /***2 */
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3); // PA2红
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4); // PA3黑
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3); // PA2
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4); // PA3
     /**3 */
-    HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1); // PH6红
-    HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_2); // PH9黑
+    HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1); // PH6
+    HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_2); // PH9
     /**4 */
-    HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1); // PE5红
-    HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_2); // PE6黑
+    HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1); // PE5
+    HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_2); // PE6
 }
 //   PA0     ------> TIM2_CH1
 //   PA1     ------> TIM2_CH2
@@ -42,14 +43,14 @@ void Motor1_SetSpeed(uint8_t Dir, uint16_t Speed)
 
     if (Dir)
     {
-        __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, Speed);
+        __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, Speed + 8);
         __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_2, 0);
     }
 
     else if (!Dir)
     {
         __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, 0);
-        __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_2, Speed);
+        __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_2, Speed + 8);
     }
 }
 
@@ -62,14 +63,14 @@ void Motor2_SetSpeed(uint8_t Dir, uint16_t Speed)
 
     if (Dir)
     {
-        __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_3, Speed-510);
+        __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_3, Speed);
         __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_4, 0);
     }
 
     else if (!Dir)
     {
         __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_3, 0);
-        __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_4, Speed-510);
+        __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_4, Speed);
     }
 }
 
@@ -82,14 +83,14 @@ void Motor3_SetSpeed(uint8_t Dir, uint16_t Speed)
 
     if (Dir)
     {
-        __HAL_TIM_SetCompare(&htim12, TIM_CHANNEL_1, Speed+400);
+        __HAL_TIM_SetCompare(&htim12, TIM_CHANNEL_1, Speed);
         __HAL_TIM_SetCompare(&htim12, TIM_CHANNEL_2, 0);
     }
 
     else if (!Dir)
     {
         __HAL_TIM_SetCompare(&htim12, TIM_CHANNEL_1, 0);
-        __HAL_TIM_SetCompare(&htim12, TIM_CHANNEL_2, Speed+400);
+        __HAL_TIM_SetCompare(&htim12, TIM_CHANNEL_2, Speed);
     }
 }
 
@@ -102,18 +103,18 @@ void Motor4_SetSpeed(uint8_t Dir, uint16_t Speed)
 
     if (Dir)
     {
-        __HAL_TIM_SetCompare(&htim15, TIM_CHANNEL_1, Speed+100);
+        __HAL_TIM_SetCompare(&htim15, TIM_CHANNEL_1, Speed);
         __HAL_TIM_SetCompare(&htim15, TIM_CHANNEL_2, 0);
     }
 
     else if (!Dir)
     {
         __HAL_TIM_SetCompare(&htim15, TIM_CHANNEL_1, 0);
-        __HAL_TIM_SetCompare(&htim15, TIM_CHANNEL_2, Speed+100);
+        __HAL_TIM_SetCompare(&htim15, TIM_CHANNEL_2, Speed);
     }
 }
 
-/****************************方向控制******************************* */
+/****************************方向控制********************************/
 // 停止
 void Car_stop()
 {
@@ -172,4 +173,4 @@ void Car_left_shift(uint16_t Speed)
     Motor4_SetSpeed(0, Speed);
 }
 
-/************************************************************ */
+/*************************************************************/

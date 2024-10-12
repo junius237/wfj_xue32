@@ -138,9 +138,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    car_balance();
-    
-  }
+    int i;
+    i=__HAL_TIM_GET_COUNTER(&htim2);
+    printf("i: %d\r\n", i);
+    __HAL_TIM_SET_COUNTER(&htim2, 0);
+    HAL_Delay(1000);
+    }
   /* USER CODE END 3 */
 }
 

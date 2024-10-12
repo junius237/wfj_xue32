@@ -1,12 +1,12 @@
 --cpu Cortex-M3
 "motor_hc\startup_stm32f103xe.o"
+"motor_hc\delay.o"
 "motor_hc\main.o"
 "motor_hc\gpio.o"
 "motor_hc\tim.o"
 "motor_hc\usart.o"
 "motor_hc\stm32f1xx_it.o"
 "motor_hc\stm32f1xx_hal_msp.o"
-"motor_hc\delay.o"
 "motor_hc\stm32f1xx_hal_gpio_ex.o"
 "motor_hc\stm32f1xx_hal_tim.o"
 "motor_hc\stm32f1xx_hal_tim_ex.o"
@@ -22,7 +22,7 @@
 "motor_hc\stm32f1xx_hal_exti.o"
 "motor_hc\stm32f1xx_hal_uart.o"
 "motor_hc\system_stm32f1xx.o"
---strict --scatter "motor_hc\motor_hc.sct"
+--library_type=microlib --strict --scatter "motor_hc\motor_hc.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "motor_hc.map" -o motor_hc\motor_hc.axf

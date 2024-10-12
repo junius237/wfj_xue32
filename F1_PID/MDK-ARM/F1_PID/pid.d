@@ -21,4 +21,5 @@ f1_pid/pid.o: ..\Core\Src\pid.c ..\Core\Inc\pid.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
-  ..\Core\Inc\tim.h ..\Core\Inc\main.h
+  ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\Core\Inc\control.h \
+  ..\Core\Inc\gpio.h

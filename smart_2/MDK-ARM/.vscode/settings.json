@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "pid.h": "c",
+        "control.h": "c"
+    }
+}

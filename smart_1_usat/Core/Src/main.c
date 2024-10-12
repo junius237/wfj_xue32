@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "control.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,25 +59,6 @@ static void MPU_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 /* USER CODE BEGIN 0 */
-
-/**
-  * 函数功能: 重定向c库函数printf到DEBUG_USARTx
-  */
-int fputc(int ch, FILE *f)
-{
-  HAL_UART_Transmit(&huart8, (uint8_t *)&ch, 1, 0xffff);
-  return ch;
-}
- 
-/**
-  * 函数功能: 重定向c库函数getchar,scanf到DEBUG_USARTx
-  */
-int fgetc(FILE *f)
-{
-  uint8_t ch = 0;
-  HAL_UART_Receive(&huart8, &ch, 1, 0xffff);
-  return ch;
-}
 
 /* USER CODE END 0 */
 
@@ -118,13 +99,10 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM12_Init();
   MX_TIM15_Init();
-  MX_UART4_Init();
-  MX_UART5_Init();
-  MX_UART7_Init();
-  MX_UART8_Init();
-  /* USER CODE BEGIN 2 */
-  Motor_Init();
 
+  /* USER CODE BEGIN 2 */
+//  Motor_Init();
+usart_init(115200);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -139,7 +117,7 @@ int main(void)
 
   
   		printf("Uart8 Test!\n\r");		
-		HAL_Delay(1000);	
+		//HAL_Delay(1000);	
     /* USER CODE END WHILE */
 
 

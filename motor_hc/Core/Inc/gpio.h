@@ -37,8 +37,7 @@ extern float HCSR04_Distance1;
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);
-void start_mode1(void);
-void HCSR04_GetDistance1(void);
+
 /* USER CODE BEGIN Prototypes */
 
 /* USER CODE END Prototypes */

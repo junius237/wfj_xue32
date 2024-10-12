@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -22,11 +22,60 @@
 #include "usart.h"
 #include "gpio.h"
 
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "string.h"
+#include "stdio.h"
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+int count;
+float Distance;
+
+/* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+int fputc(int ch, FILE *f)
+{
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xffff);
+  return ch;
+}
+
+
+int fgetc(FILE *f)
+{
+  uint8_t ch = 0;
+  HAL_UART_Receive(&huart1, &ch, 1, 0xffff);
+  return ch;
+}
+
+
+void Start(void);
+/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -57,10 +106,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM5_Init();
-  uart_init(115200);
-  delay_init(72);
-  
+  MX_USART1_UART_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -70,11 +117,32 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-   
 
-    printf("G=%f\t\n", HCSR04_Distance1);
-    delay_ms(2000);
     /* USER CODE BEGIN 3 */
+      /* 定时器1，通道1，模式随便，主要用于计数，没有使用边沿捕获 */	
+		Start();//开启超声波模块
+		
+ 		HAL_TIM_Base_Start(&htim1);//开启定时器
+ 
+		//对超声波输入端口操作
+		while( HAL_GPIO_ReadPin (GPIOE ,GPIO_PIN_14) == GPIO_PIN_RESET);//等待输入电平拉高
+		
+		__HAL_TIM_SetCounter(&htim1,0);
+		
+		//对超声波输入端口操作
+		while( HAL_GPIO_ReadPin (GPIOE ,GPIO_PIN_14) == GPIO_PIN_SET);//等待输入电平变低
+		
+		count = __HAL_TIM_GetCounter(&htim1);
+		
+		HAL_TIM_Base_Stop(&htim1);
+		
+		Distance = count*340/2*0.000001*100;
+		
+		printf("Distance=%.1fcm\r\n",Distance);
+		
+    TIM1_Delay_us(2000);
+		
+
   }
   /* USER CODE END 3 */
 }
@@ -119,6 +187,15 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void Start(void)
+{
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET); // 拉高
+
+  TIM1_Delay_us(15);
+
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET); // 拉低
+  
+}
 
 /* USER CODE END 4 */
 

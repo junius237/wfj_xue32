@@ -27,22 +27,21 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "gpio.h"
 
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
-extern TIM_HandleTypeDef htim5;
+extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
-void MX_TIM5_Init(void);
+void MX_TIM1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+extern void TIM1_Delay_us(uint16_t n_us);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

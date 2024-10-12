@@ -32,7 +32,7 @@ void Set_Speed(uint16_t Speed)
 void car_balance(void)
 {
 
-    Get_Speed(200);
+  //  Get_Speed(200);
 
     Set_Speed(motor_pid.output_val);
 }
@@ -42,37 +42,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
     if (htim->Instance == TIM4)
     {
-        Get_Speed();
-        printf("Motor1_Speed: %f\r\n", Motor1_Speed);
+//        Get_Speed();
+       // printf("Motor1_Speed: %f\r\n", Motor1_Speed);
     }
-}
-
-int Get_Speed(int motor_index)
-{
-    int Motor_Speed = 0;
-    switch (motor_index)
-    {
-    case 0:
-        Motor_Speed = (short)__HAL_TIM_GET_COUNTER(&htim1); // 使用对应的定时器
-        __HAL_TIM_SET_COUNTER(&htim1, 0);
-        break;
-    case 1:
-        Motor_Speed = (short)__HAL_TIM_GET_COUNTER(&htim2);
-        __HAL_TIM_SET_COUNTER(&htim2, 0);
-        break;
-    case 2:
-        Motor_Speed = (short)__HAL_TIM_GET_COUNTER(&htim3);
-        __HAL_TIM_SET_COUNTER(&htim3, 0);
-        break;
-    case 3:
-        Motor_Speed = (short)__HAL_TIM_GET_COUNTER(&htim4);
-        __HAL_TIM_SET_COUNTER(&htim4, 0);
-        break;
-    default:
-        Motor_Speed = 0; // 防止无效电机索引
-        break;
-    }
-    return Motor_Speed;
 }
 
 

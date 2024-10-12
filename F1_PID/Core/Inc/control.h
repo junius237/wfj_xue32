@@ -19,7 +19,7 @@ void Motor3_SetSpeed(uint8_t Dir, uint16_t Speed);
 
 void Motor4_SetSpeed(uint8_t Dir, uint16_t Speed);
 
-extern int Get_Speed(int motor_index);
+//extern int Get_Speed(int motor_index);
 
 void car_balance(void);
 

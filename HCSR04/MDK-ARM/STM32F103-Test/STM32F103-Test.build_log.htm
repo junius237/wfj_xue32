@@ -1,0 +1,126 @@
+<html>
+<body>
+<pre>
+<h1>�Vision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ��Vision V5.40.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: WEN WEN, WEN, LIC=BUURY-IEKPT-74TS0-BWHHU-44UUY-XFSV1
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.40.0.3
+Toolchain Path:  E:\keil_MDK\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.22
+Assembler:       Armasm.exe V6.22
+Linker/Locator:  ArmLink.exe V6.22
+Library Manager: ArmAr.exe V6.22
+Hex Converter:   FromElf.exe V6.22
+CPU DLL:         SARMCM3.DLL V5.40.0.3
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      Segger\JL2CM3.dll V2.99.44.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+e:\Desktop\f32xuexi\HCSR04\MDK-ARM\STM32F103-Test.uvprojx
+Project File Date:  09/22/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.22', folder: 'E:\keil_MDK\ARM\ARMCLANG\Bin'
+Build target 'STM32F103-Test'
+../MyApplication/System.c(8): error: static declaration of 'Error_Handler' follows non-static declaration
+    8 | static void Error_Handler(void);
+      |             ^
+../Core/Inc\main.h(53): note: previous declaration is here
+   53 | void Error_Handler(void);
+      |      ^
+../MyApplication/System.c(101): warning: passing 'char[13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  101 |                         OLED_ShowString(20,2,"Now Distance",16);
+      |                                              ^~~~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(103): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+  103 |                         printf("ʵʱ<BE><E0><C0>룺%d\r\n",DistanceValue);                                               
+      |                                   ^~~~~~~~~~~~
+../MyApplication/System.c(107): warning: passing 'char[13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  107 |            OLED_ShowString(20,2,"Data invalid",16);
+      |                                 ^~~~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(108): warning: passing 'char[11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  108 |                  OLED_ShowString(30,4,"Too close ",16);  
+      |                                       ^~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(109): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+  109 |                  printf("<BE><E0><C0><EB>̫<BD><FC>\r\n");        
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+../MyApplication/System.c(113): warning: passing 'char[13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  113 |            OLED_ShowString(20,2,"Data invalid",16);
+      |                                 ^~~~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(114): warning: passing 'char[11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  114 |                  OLED_ShowString(30,4,"----------",16);  
+      |                                       ^~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(115): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+  115 |                  printf("<BE><E0><C0><EB><CE><DE>Ч\r\n");        
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+../MyApplication/System.c(119): warning: passing 'char[13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  119 |            OLED_ShowString(20,2,"Data invalid",16);
+      |                                 ^~~~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(120): warning: passing 'char[11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  120 |                  OLED_ShowString(30,4,"Data Error",16);  
+      |                                       ^~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(121): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+  121 |            printf("<CA><FD><BE>ݴ<ED><CE><F3>\r\n");                       
+      |                    ^~~~~~~~~~~~ ~~~~~~~~~~~~
+../MyApplication/System.c(131): error: static declaration of 'Error_Handler' follows non-static declaration
+  131 | static void Error_Handler()
+      |             ^
+../Core/Inc\main.h(53): note: previous declaration is here
+   53 | void Error_Handler(void);
+      |      ^
+11 warnings and 2 errors generated.
+compiling System.c...
+"STM32F103-Test\STM32F103-Test.axf" - 2 Error(s), 11 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM::CMSIS@6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil::STM32F1xx_DFP@2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_STM32F103-Test
+  C:/Users/20233/AppData/Local/arm/packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+  C:/Users/20233/AppData/Local/arm/packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@6.1.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+Target not created.
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>

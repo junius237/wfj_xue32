@@ -56,7 +56,7 @@ float PID_realize(int index)
   if (index < 0 || index >= 4)
     return 0; // 确保索引有效
   int actual_val;
-  actual_val = Get_Speed(index); // 获取当前实际值
+//  actual_val = Get_Speed(index); // 获取当前实际值
 
   pid[index].actual_val = actual_val; // 获取当前实际值
   /* 计算目标值与实际值的误差 */

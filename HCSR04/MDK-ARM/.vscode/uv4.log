@@ -1,0 +1,73 @@
+*** Using Compiler 'V6.22', folder: 'E:\keil_MDK\ARM\ARMCLANG\Bin'
+Build target 'STM32F103-Test'
+../MyApplication/System.c(8): error: static declaration of 'Error_Handler' follows non-static declaration
+    8 | static void Error_Handler(void);
+      |             ^
+../Core/Inc\main.h(53): note: previous declaration is here
+   53 | void Error_Handler(void);
+      |      ^
+../MyApplication/System.c(101): warning: passing 'char[13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  101 |                         OLED_ShowString(20,2,"Now Distance",16);
+      |                                              ^~~~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(103): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+  103 |                         printf("ʵʱ<BE><E0><C0>룺%d\r\n",DistanceValue);                                               
+      |                                   ^~~~~~~~~~~~
+../MyApplication/System.c(107): warning: passing 'char[13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  107 |            OLED_ShowString(20,2,"Data invalid",16);
+      |                                 ^~~~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(108): warning: passing 'char[11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  108 |                  OLED_ShowString(30,4,"Too close ",16);  
+      |                                       ^~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(109): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+  109 |                  printf("<BE><E0><C0><EB>̫<BD><FC>\r\n");        
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+../MyApplication/System.c(113): warning: passing 'char[13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  113 |            OLED_ShowString(20,2,"Data invalid",16);
+      |                                 ^~~~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(114): warning: passing 'char[11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  114 |                  OLED_ShowString(30,4,"----------",16);  
+      |                                       ^~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(115): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+  115 |                  printf("<BE><E0><C0><EB><CE><DE>Ч\r\n");        
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~
+../MyApplication/System.c(119): warning: passing 'char[13]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  119 |            OLED_ShowString(20,2,"Data invalid",16);
+      |                                 ^~~~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(120): warning: passing 'char[11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+  120 |                  OLED_ShowString(30,4,"Data Error",16);  
+      |                                       ^~~~~~~~~~~~
+../MyApplication\oled.h(49): note: passing argument to parameter 'p' here
+   49 | void OLED_ShowString(uint8_t x,uint8_t y, uint8_t *p,uint8_t Char_Size);         
+      |                                                    ^
+../MyApplication/System.c(121): warning: illegal character encoding in string literal [-Winvalid-source-encoding]
+  121 |            printf("<CA><FD><BE>ݴ<ED><CE><F3>\r\n");                       
+      |                    ^~~~~~~~~~~~ ~~~~~~~~~~~~
+../MyApplication/System.c(131): error: static declaration of 'Error_Handler' follows non-static declaration
+  131 | static void Error_Handler()
+      |             ^
+../Core/Inc\main.h(53): note: previous declaration is here
+   53 | void Error_Handler(void);
+      |      ^
+11 warnings and 2 errors generated.
+compiling System.c...
+"STM32F103-Test\STM32F103-Test.axf" - 2 Error(s), 11 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:00
