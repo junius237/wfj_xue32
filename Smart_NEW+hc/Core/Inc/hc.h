@@ -8,21 +8,16 @@
 #include <stdlib.h>
 #include <math.h>
 
+#define START_BYTE 0x5A
+#define DATA_LENGTH 4
 /**********************超声波模块数据定义***********************************/
-extern unsigned char dat1[3], dat2[3];
-extern unsigned char num1, num2;
-extern int distanceL, distanceR;
-extern	uint8_t RxByte;
-extern uint16_t DistanceValue;
-extern	uint8_t RxByteArr[4];
-extern uint8_t RxBuff[10];
-extern uint16_t RxCount;
-extern uint8_t data[4]; 
-extern uint8_t RxByteArr[4];
-
-void USART2_IRQHandler_hc(void);
-void USART3_IRQHandler_hc(void);
+extern uint8_t data_buffer_L[DATA_LENGTH];
+extern uint8_t data_buffer_R[DATA_LENGTH];
+extern uint8_t data_index_L;
+extern uint8_t data_index_R;
+extern uint16_t Distance_R;
+extern uint16_t Distance_L;
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-
+void check_distances(void);
 
 #endif

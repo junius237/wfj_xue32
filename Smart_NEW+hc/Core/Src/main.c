@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -27,7 +28,11 @@
 #include "control.h"
 #include "usart1.h"
 #include "hc.h"
+#include "i2cnew.h"
+#include "delay.h"
 #include "stdio.h"
+#include "sh3001.h"
+#include "imu.h"
 #include "stm32h7xx_it.h"
 /* USER CODE END Includes */
 
@@ -61,7 +66,7 @@ static void MPU_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+static double YAW_STEP = 180;
 /* USER CODE END 0 */
 
 /**
@@ -117,6 +122,10 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   All_Init();
+
+  short acc_data[3];  /* 加速度传感器原始数据 */
+  short gyro_data[3]; /* 陀螺仪原始数据 */
+
   float p[4] = {2, 2, 2, 2};
   float i[4] = {1, 1, 1, 1};
   float d[4] = {0.8, 0.8, 0.8, 0.8};
@@ -125,22 +134,39 @@ int main(void)
   Set_target_val(1, 20);
   Set_target_val(2, 20);
   Set_target_val(3, 20);
+  HAL_UART_Receive_IT(&huart2, &data_buffer_L[data_index_L], 1);
+  HAL_UART_Receive_IT(&huart3, &data_buffer_R[data_index_R], 1);
 
+  eulerian_angles_t e_angles;
   // usart_init(115200);
   /* USER CODE END 2 */
-  /* USER CODE BEGIN 4 */
 
-  /* USER CODE END 4 */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
+    // /* USER CODE END WHILE */
+    double YAW1;
+    // /* USER CODE BEGIN 3 */
 
-    /* USER CODE BEGIN 3 */
-    // car_forward(2000, 2000, 2000, 2000);
-    HAL_UART_RxCpltCallback(&huart2);
-    Run();
+    // /* 读取传感器数据 */
+
+    // sh3001_get_imu_compdata(acc_data, gyro_data);
+
+    // imu_data_calibration(&gyro_data[0], &gyro_data[1], &gyro_data[2],
+    //                      &acc_data[0], &acc_data[1], &acc_data[2]);
+
+    // e_angles = imu_get_eulerian_angles(gyro_data[0], gyro_data[1], gyro_data[2],
+    //                                    acc_data[0], acc_data[1], acc_data[2]);
+
+    // YAW1 =e_angles.yaw * YAW_STEP;
+    // printf("Roll: %.2f, Pitch: %.2f, Yaw: %.8f\r\n", e_angles.roll, e_angles.pitch, e_angles.yaw);
+    // printf("yaw_test: %.2f\r\n", yaw_test);
+    // printf("yawmmm: %.15f\r\n", YAW1);
+
+    // delay_ms(500);
+     //Run();
+    printf("Distance_L: %d, Distance_R: %d\r\n", Distance_L, Distance_R);
   }
 
   /* USER CODE END 3 */

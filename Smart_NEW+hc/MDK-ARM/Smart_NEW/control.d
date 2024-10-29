@@ -28,4 +28,6 @@ smart_new/control.o: ..\Core\Src\control.c ..\Core\Inc\control.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
   ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\Core\Inc\pid.h \
-  ..\Core\Inc\usart1.h ..\Core\Inc\hc.h ..\Core\Inc\usart.h
+  ..\Core\Inc\usart1.h ..\Core\Inc\hc.h ..\Core\Inc\usart.h \
+  ..\Core\Inc\delay.h ..\Core\Inc\i2cnew.h ..\Core\Inc\sh3001.h \
+  ..\Core\Inc\imu.h

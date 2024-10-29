@@ -39,10 +39,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if (htim->Instance == TIM6)
 
     {
-       printf("M1:%d\r\n", Get_Encoder(1));
-         printf("M2:%d\r\n", Get_Encoder(2));
-            printf("M3:%d\r\n", Get_Encoder(3));
-                printf("M4:%d\r\n", Get_Encoder(4));
+        printf("M1:%d\r\n", Get_Encoder(1));
+        printf("M2:%d\r\n", Get_Encoder(2));
+        printf("M3:%d\r\n", Get_Encoder(3));
+        printf("M4:%d\r\n", Get_Encoder(4));
     }
 }
 

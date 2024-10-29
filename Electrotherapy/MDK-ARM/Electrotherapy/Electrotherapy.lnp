@@ -25,7 +25,6 @@
 "electrotherapy\esp8266.o"
 "electrotherapy\main_program.o"
 "electrotherapy\time_handle.o"
-"electrotherapy\wavectrl.o"
 "electrotherapy\sys.o"
 "electrotherapy\delay.o"
 --strict --scatter "Electrotherapy\Electrotherapy.sct"

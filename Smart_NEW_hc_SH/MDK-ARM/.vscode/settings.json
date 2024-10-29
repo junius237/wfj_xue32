@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "stm32h7xx.h": "c",
+        "stm32h7xx_hal.h": "c",
+        "gpio.h": "c",
+        "imu.h": "c",
+        "stdlib.h": "c",
+        "hc.h": "c",
+        "usart.h": "c",
+        "pid.h": "c",
+        "control.h": "c",
+        "stm32h7xx_it.h": "c"
+    },
+    "commentTranslate.hover.enabled": true
+}

@@ -2,10 +2,16 @@
 #include "pid.h"
 #include "usart1.h"
 #include "hc.h"
+#include "delay.h"
+#include "i2cnew.h"
+#include "sh3001.h"
+#include "imu.h"
 
 void All_Init(void)
 {
-
+    /********************************初始化**************************************/
+    /*delay*/
+    delay_init();
     /*pwm*/
     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);  // PA6
     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);  // PA7
@@ -29,39 +35,58 @@ void All_Init(void)
     __HAL_UART_ENABLE(&huart2);
     __HAL_UART_ENABLE(&huart3);
 
+    /*陀螺仪*/
+    while (sh3001_init()) /* 检测不到SH3001 */
+    {
+        printf("SH3001 init failed\r\n");
+        delay_ms(1000);
+    }
+    imu_init(); /* 初始化IMU */
+    /*******************************end***************************************/
 }
 
 void Run(void)
-{
-    car_forward(PID_realize(0), PID_realize(1), PID_realize(2), PID_realize(3));
-}
+{  
 
+    check_distances();
+}
+void Encdoer_STOP(void)
+{
+    HAL_TIM_Encoder_Stop(&htim1, TIM_CHANNEL_ALL);
+    HAL_TIM_Encoder_Stop(&htim2, TIM_CHANNEL_ALL);
+    HAL_TIM_Encoder_Stop(&htim4, TIM_CHANNEL_ALL);
+    HAL_TIM_Encoder_Stop(&htim5, TIM_CHANNEL_ALL);
+}
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim->Instance == TIM6)
 
     {
+        PID_realize(0);
+        PID_realize(1);
+        PID_realize(2);
+        PID_realize(3);
     }
 }
 
-uint16_t Get_Encoder(uint8_t Motor_indx)
+short Get_Encoder(uint8_t Motor_indx)
 {
-    uint16_t encoder = 0;
+    short encoder = 0;
     switch (Motor_indx)
     {
-    case 1:
+    case 0:
         encoder = (short)__HAL_TIM_GET_COUNTER(&htim1);
         __HAL_TIM_SET_COUNTER(&htim1, 0);
         break;
-    case 2:
+    case 1:
         encoder = (short)__HAL_TIM_GET_COUNTER(&htim2);
         __HAL_TIM_SET_COUNTER(&htim2, 0);
         break;
-    case 3:
+    case 2:
         encoder = (short)__HAL_TIM_GET_COUNTER(&htim4);
         __HAL_TIM_SET_COUNTER(&htim4, 0);
         break;
-    case 4:
+    case 3:
         encoder = (short)__HAL_TIM_GET_COUNTER(&htim5);
         __HAL_TIM_SET_COUNTER(&htim5, 0);
         break;
@@ -135,7 +160,7 @@ void Motor4_Speed(uint8_t Dir, uint16_t d)
     }
 }
 
-/*****运动控制 */
+/*****运动控制*************** */
 void car_forward(uint16_t a, uint16_t b, uint16_t c, uint16_t d)
 {
     Motor1_Speed(1, a);
@@ -160,20 +185,20 @@ void car_stop(void)
     Motor4_Speed(1, 0);
 }
 
-void car_left(uint16_t a, uint16_t b, uint16_t c, uint16_t d)
+void car_left(uint16_t a)
 {
-    Motor1_Speed(1, a);
-    Motor2_Speed(0, b);
-    Motor3_Speed(1, c);
-    Motor4_Speed(0, d);
+    Motor1_Speed(1,a);
+    Motor2_Speed(0, a);
+    Motor3_Speed(1, a);
+    Motor4_Speed(0, a);
 }
 
-void car_right(uint16_t a, uint16_t b, uint16_t c, uint16_t d)
+void car_right(uint16_t a)
 {
     Motor1_Speed(0, a);
-    Motor2_Speed(1, b);
-    Motor3_Speed(0, c);
-    Motor4_Speed(1, d);
+    Motor2_Speed(1, a);
+    Motor3_Speed(0, a);
+    Motor4_Speed(1, a);
 }
 
 void car_Left_shift(uint16_t a, uint16_t b, uint16_t c, uint16_t d)

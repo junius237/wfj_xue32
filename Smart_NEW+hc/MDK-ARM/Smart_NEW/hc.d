@@ -27,4 +27,6 @@ smart_new/hc.o: ..\Core\Src\hc.c ..\Core\Inc\hc.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_tim_ex.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
-  ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\Core\Inc\usart.h
+  ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\Core\Inc\usart.h \
+  ..\Core\Inc\pid.h ..\Core\Inc\control.h ..\Core\Inc\delay.h \
+  ..\Core\Inc\i2cnew.h ..\Core\Inc\imu.h
